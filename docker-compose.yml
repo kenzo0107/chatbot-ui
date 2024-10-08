@@ -1,0 +1,18 @@
+version: '3.6'
+
+services:
+  chatgpt:
+    build: .
+    command: npm run dev
+    volumes:
+    - .:/app
+    ports:
+      - 3000:3000
+    environment:
+      - OPENAI_API_KEY
+      - OPENAI_API_VERSION=2023-12-01-preview
+      - OPENAI_API_HOST=<azure openai service endpoint>
+      - DEPLOYMENT_ID_GPT_3_5_TURBO=<gpt-35-turbo>
+      - DEPLOYMENT_ID_GPT_4_32K=<gpt-4-32k>
+      - DEPLOYMENT_ID_GPT_4_VISION_PREVIEW=<gpt-4-vision-preview>
+      - TEXT_EXTRACTION_API=<text extraction api endpoint>
